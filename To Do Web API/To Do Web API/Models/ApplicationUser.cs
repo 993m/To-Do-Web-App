@@ -3,10 +3,9 @@
 namespace To_Do_Web_API.Models
 {
     public class ApplicationUser : IdentityUser
-    {
+    { 
+        public ICollection<Project> Projects { get; set; }
         
-        public virtual ICollection<Project> Projects { get; set; }
-        
-        public virtual ICollection<Task> Tasks { get; set; }
+        public ICollection<Task> Tasks { get; set; }
     }
 }

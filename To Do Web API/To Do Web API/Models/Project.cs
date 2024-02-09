@@ -9,9 +9,9 @@ namespace To_Do_Web_API.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public int UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
         
-        public virtual ICollection<Task> Tasks { get; set; }
+        public ICollection<Task> Tasks { get; set; }
     }
 }

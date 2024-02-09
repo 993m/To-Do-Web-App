@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using To_Do_Web_API.DTO;
 
 namespace To_Do_Web_API.Models
 {
@@ -13,10 +14,11 @@ namespace To_Do_Web_API.Models
 
 
         public int? ProjectId { get; set; }
-        public virtual Project? Project { get; set; }
+        public Project? Project { get; set; }
 
-        public int UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
+
     }
 
     public enum TaskStatus

@@ -1,0 +1,46 @@
+.container {
+    column-gap: 16px;
+    column-count: 4;
+    padding: 0;
+}
+  
+.col {
+    break-inside: avoid-column;
+    margin-bottom: 16px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        column-count: 3;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        column-count: 2;
+    }
+    
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.btn-light{
+    margin-right: 3px;
+}
+
+  
+  

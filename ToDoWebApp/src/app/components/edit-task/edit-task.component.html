@@ -1,0 +1,34 @@
+<h1>{{task.name == null || task.name == '' ? 'New task' : task.name}}</h1>
+
+<form #taskForm="ngForm" class="p-3">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="task.name" required/>
+        <div *ngIf="taskForm.controls['name'].invalid" class="text-danger">
+            Please enter a title.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" name="description" class="form-control" [(ngModel)]="task.description"/>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select name="status" class="form-select" [(ngModel)]="task.status">
+            <option [value]="taskStatus.Pending" [selected]="task.status === taskStatus.Pending">Pending</option>
+            <option [value]="taskStatus.InProgress" [selected]="task.status === taskStatus.InProgress">InProgress</option>
+            <option [value]="taskStatus.Completed" [selected]="task.status === taskStatus.Completed">Completed</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Due date</label>
+        <input type="datetime-local" name="dueDate" class="form-control" [(ngModel)]="task.dueDate" [value]="task.dueDate"/>
+    </div>
+    
+
+    <button *ngIf="!task.id" class="btn btn-light" (click)="createTask(task)">Create task</button>
+    <button *ngIf="task.id" class="btn btn-light" (click)="updateTask(task)">Update task</button>
+</form>
