@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Task } from '../../models/task';
 import { TaskStatus } from '../../models/taskStatus';
 import { TaskService } from '../../services/task.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-task',
@@ -11,22 +11,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditTaskComponent {
   @Input() task!: Task;
-  @Output() tasksUpdated = new EventEmitter<void>();
   taskStatus = TaskStatus;
 
-  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {
+  constructor(private taskService: TaskService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.task = JSON.parse(params['task']);
     });
   }
 
-  ngOnInit(): void {
-  }
-
   createTask(task: Task): void {
     this.taskService.createTask(task).subscribe(
       (createdTask: Task) => {
-      this.router.navigate(['/tasks']);
+        window.history.back();
     },
     error => {
       console.error('Error creating task:', error);
@@ -34,10 +30,9 @@ export class EditTaskComponent {
   }
 
   updateTask(task: Task): void {
-    console.log(task);
     this.taskService.updateTask(task).subscribe(
       (updatedTask: Task) => {
-      this.router.navigate(['/tasks']);
+          window.history.back();
     },
     error => {
       console.error('Error updating task:', error);

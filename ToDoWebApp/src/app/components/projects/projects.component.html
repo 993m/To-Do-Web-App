@@ -1,0 +1,16 @@
+<div class="row justify-content-between align-items-center mt-4 mb-4 mx">
+    <div class="col-auto">
+        <h1>Your projects</h1>
+    </div>
+    <div class="col-auto">
+        <a (click)="goToEdit()" class="btn btn-light">Add a new project</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3">
+      <div class="col d-flex flex-column h-100" *ngFor="let project of projects">
+        <app-project [project]="project" [showDescription]="false"></app-project>
+      </div>
+    </div>
+</div>

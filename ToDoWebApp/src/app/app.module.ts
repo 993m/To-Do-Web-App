@@ -13,6 +13,10 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { EditProjectComponent } from './components/edit-project/edit-project.component';
+import { ProjectComponent } from './components/project/project.component';
+import { ShowProjectComponent } from './components/show-project/show-project.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NavMenuComponent,
     LoginMenuComponent,
     TasksComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    ProjectsComponent,
+    EditProjectComponent,
+    ProjectComponent,
+    ShowProjectComponent
   ],
   imports: [
     BrowserModule,

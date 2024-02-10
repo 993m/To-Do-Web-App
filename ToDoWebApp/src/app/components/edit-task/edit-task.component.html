@@ -29,6 +29,6 @@
     </div>
     
 
-    <button *ngIf="!task.id" class="btn btn-light" (click)="createTask(task)">Create task</button>
-    <button *ngIf="task.id" class="btn btn-light" (click)="updateTask(task)">Update task</button>
+    <button [disabled]="taskForm.invalid" *ngIf="!task.id" class="btn btn-light" (click)="createTask(task)">Create task</button>
+    <button [disabled]="taskForm.invalid" *ngIf="task.id" class="btn btn-light" (click)="updateTask(task)">Update task</button>
 </form>

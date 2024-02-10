@@ -1,0 +1,22 @@
+<h1>{{project.name == null || project.name == '' ? 'New project' : project.name}}</h1>
+
+<form #projectForm="ngForm" class="p-3">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="project.name" required/>
+        <div *ngIf="projectForm.controls['name'].invalid" class="text-danger">
+            Please enter a title.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" name="description" class="form-control" [(ngModel)]="project.description" required=""/>
+        <div *ngIf="projectForm.controls['description'].invalid" class="text-danger">
+            Please enter a description.
+        </div>
+    </div>
+
+    <button [disabled]="projectForm.invalid" *ngIf="!project.id" class="btn btn-light" (click)="createProject(project)">Create project</button>
+    <button [disabled]="projectForm.invalid" *ngIf="project.id" class="btn btn-light" (click)="updateProject(project)">Update project</button>
+</form>

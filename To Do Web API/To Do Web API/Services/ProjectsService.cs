@@ -7,9 +7,11 @@ namespace To_Do_Web_API.Services
     public class ProjectsService
     {
         public readonly DataContext _context;
-        public ProjectsService(DataContext context)
+        public readonly TasksService _tasksService;
+        public ProjectsService(DataContext context, TasksService tasksService)
         {
             _context = context;
+            _tasksService = tasksService;
         }
 
         public async Task<IEnumerable<Project>> GetProjectsAsync()
@@ -44,6 +46,11 @@ namespace To_Do_Web_API.Services
         public async Task<bool> DeleteProjectAsync(int id)
         {
             var project = await _context.Projects.FindAsync(id);
+            var tasks = await _tasksService.GetTasksByProjectIdAsync(id);
+            foreach (var task in tasks)
+            {
+                await _tasksService.DeleteTaskAsync(task.Id);
+            }
             _context.Projects.Remove(project);
             return await _context.SaveChangesAsync() > 0;
         }

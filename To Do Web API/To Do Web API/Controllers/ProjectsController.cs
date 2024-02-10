@@ -79,6 +79,7 @@ namespace To_Do_Web_API.Controllers
             try
             {
                 project = _mapper.Map<Project>(projectDTO);
+                project.UserId = GetCurrentAuthenticatedUserId();
                 await _projectsService.PutProjectAsync(project);
                 return Ok();
             }

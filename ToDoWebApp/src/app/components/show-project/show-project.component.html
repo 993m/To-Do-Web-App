@@ -1,0 +1,15 @@
+<div class="container m-3 p-0 mx-auto" >
+
+    <div class="row justify-content-between align-items-center mt-4 mb-4 mx">
+        <div class="col-auto">
+            <a (click)="goToEdit()" class="btn btn-light"><i class="bi bi-pencil-square"></i> Edit project</a>
+        </div>
+        <div class="col-auto">
+            <a (click)="deleteProject()" class="btn btn-light"><i class="bi bi-trash3"></i> Delete project</a>  
+        </div>
+      </div>
+
+    <app-project [project]="project" [showDescription]="true"></app-project>
+
+    <app-tasks class="p-3" [projectId]="project.id"></app-tasks>
+</div>

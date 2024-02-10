@@ -1,0 +1,16 @@
+.container {
+    padding: 0;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.col {
+    break-inside: avoid-column;
+    margin-bottom: 16px;
+    height: 400px;
+}
+

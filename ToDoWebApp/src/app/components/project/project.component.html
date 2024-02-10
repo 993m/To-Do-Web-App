@@ -1,0 +1,9 @@
+<div class="card" type="button">
+  <button class="card-body btn btn-light text-center" (click)="showProjectDetails()">
+    <h5 class="card-title p-3">{{ project.name }}</h5>
+    <h6 class="card-subtitle mb-2">- {{nrTasks}} {{nrTasks == 1 ? 'task' : 'tasks'}} -</h6>
+    <p *ngIf="showDescription" class="card-text p-3 mx-auto w-75 mt-4">{{ project.description }}</p>
+  </button>
+</div>
+
+

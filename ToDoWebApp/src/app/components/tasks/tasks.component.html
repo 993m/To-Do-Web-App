@@ -1,6 +1,6 @@
 <div class="row justify-content-between align-items-center mt-4 mb-4 mx">
   <div class="col-auto">
-      <h1>Your tasks</h1>
+      <h1>{{title}}</h1>
   </div>
   <div class="col-auto">
       <a (click)="goToEdit()" class="btn btn-light">Add a new task</a>
@@ -8,7 +8,7 @@
 </div>
 
 <div class="container">
-    <div class="col" *ngFor="let task of tasks; let i = index">
+    <div class="col" *ngFor="let task of tasks">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"> {{ task.name }} </h5>
