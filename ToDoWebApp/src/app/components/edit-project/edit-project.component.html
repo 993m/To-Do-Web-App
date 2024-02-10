@@ -11,7 +11,7 @@
 
     <div class="mb-3">
         <label class="form-label">Description</label>
-        <input type="text" name="description" class="form-control" [(ngModel)]="project.description" required=""/>
+        <textarea type="text" name="description" class="form-control" [(ngModel)]="project.description" required=""></textarea>
         <div *ngIf="projectForm.controls['description'].invalid" class="text-danger">
             Please enter a description.
         </div>

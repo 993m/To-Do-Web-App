@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditTaskComponent {
   @Input() task!: Task;
-  taskStatus = TaskStatus;
+  taskStatus: typeof TaskStatus = TaskStatus;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {

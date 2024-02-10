@@ -11,15 +11,15 @@
 
     <div class="mb-3">
         <label class="form-label">Description</label>
-        <input type="text" name="description" class="form-control" [(ngModel)]="task.description"/>
+        <textarea type="text" name="description" class="form-control" [(ngModel)]="task.description"></textarea>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Status</label>
         <select name="status" class="form-select" [(ngModel)]="task.status">
-            <option [value]="taskStatus.Pending" [selected]="task.status === taskStatus.Pending">Pending</option>
-            <option [value]="taskStatus.InProgress" [selected]="task.status === taskStatus.InProgress">InProgress</option>
-            <option [value]="taskStatus.Completed" [selected]="task.status === taskStatus.Completed">Completed</option>
+            <option [ngValue]="taskStatus.Pending" [selected]="task.status === taskStatus.Pending">Pending</option>
+            <option [ngValue]="taskStatus.InProgress" [selected]="task.status === taskStatus.InProgress">InProgress</option>
+            <option [ngValue]="taskStatus.Completed" [selected]="task.status === taskStatus.Completed">Completed</option>   
         </select>
     </div>
 

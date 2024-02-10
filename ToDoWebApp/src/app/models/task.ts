@@ -4,7 +4,7 @@ export class Task {
   id?: number;
   name!: string;
   description?: string;
-  status: TaskStatus = TaskStatus.Pending;
+  status!: TaskStatus;
   dueDate?: Date;
   projectId?: number;
 }
