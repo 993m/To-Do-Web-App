@@ -10,6 +10,11 @@ import { ShowProjectComponent } from './components/show-project/show-project.com
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/tasks',
+    pathMatch: 'full'
+  },
+  {
     path: 'auth',
     component: AuthComponent
   },

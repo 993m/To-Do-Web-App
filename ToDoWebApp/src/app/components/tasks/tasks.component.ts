@@ -19,10 +19,7 @@ export class TasksComponent {
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe(tasks => {
-      this.tasks = tasks.sort((a, b) =>
-        (Number(a.dueDate) ?? Number.MAX_VALUE) - (Number(b.dueDate) ?? Number.MAX_VALUE));
-
-      this.tasks = this.tasks.filter(task => task.projectId == this.projectId);
+      this.tasks = tasks.filter(task => task.projectId == this.projectId);
     });
 
     if (this.projectId) {
